@@ -11,7 +11,7 @@ jobs:
               run: cat /etc/os-release
             
             - name: Message
-              run: echo "Executado no steps!!!!!!" > /home/ubuntu/message.txt
+              run: echo "Executado no steps!!!!!!" > ${{ github.workspace }}/message.txt
 
             - name: List
               run: ls -lha
@@ -22,13 +22,14 @@ jobs:
             - use: actions/upload-artifact@v7
               with:
                 name: strigus 
-                path: /home/ubuntu/message.txt
+                path: ${{ github.workspace }}/message.txt
     
     entre_jobs_2:
         runs-on: ubuntu-latest
+        needs: entre_jobs_1
         steps:
             - uses: actions/download-artifact@v8
-            with:
+              with:
                 name: strigus
                 path: message.txt
 
