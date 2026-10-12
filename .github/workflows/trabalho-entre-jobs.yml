@@ -21,7 +21,7 @@ jobs:
 
             - uses: actions/upload-artifact@v7
               with:
-                name: strigus 
+                name: strigus-upload
                 path: ${{ github.workspace }}/message.txt
     
     entre_jobs_2:
@@ -30,8 +30,8 @@ jobs:
         steps:
             - uses: actions/download-artifact@v8
               with:
-                name: strigus
-                path: message.txt
+                name: strigus-upload
+                path: strigus
 
             - name:  List
               run: ls -lha && ls -lha ./strigus/
