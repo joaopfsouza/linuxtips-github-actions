@@ -1,0 +1,43 @@
+name: Trabalho entre jobs
+
+on:
+  workflow_dispatch
+
+jobs:
+    entre_jobs_1:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Ubuntu Version
+              run: cat /etc/os-release
+            
+            - name: Message
+              run: echo "Executado no steps!!!!!!" > /home/ubuntu/message.txt
+
+            - name: List
+              run: ls -lha
+
+            - name: Read
+              run: cat message.txt
+
+            - use: actions/upload-artifact@v7
+              with:
+                name: strigus 
+                path: /home/ubuntu/message.txt
+    
+    entre_jobs_2:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/download-artifact@v8
+            with:
+                name: strigus
+                path: message.txt
+
+            - name:  List
+              run: ls -lha && ls -lha ./strigus/
+
+            - name: Move
+              run: mv strigus/message.txt . && rm -rf ./strigus
+
+            - name: Acessa arquivo mesagem
+              run: cat message.txt
+
