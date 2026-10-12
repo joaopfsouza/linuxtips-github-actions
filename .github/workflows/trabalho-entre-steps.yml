@@ -1,0 +1,20 @@
+name: Trabalho entre steps
+
+on:
+ workflow_dispatch
+
+jobs:
+    giropops:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Ubuntu Version
+              run: cat /etc/os-release
+            
+            - name: Message
+              run: echo "Executado no steps!!!!!!" > message.txt
+
+            - name: List
+              run: ls -lha
+
+            - name: Read
+              run: cat message.txt
