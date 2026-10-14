@@ -1,0 +1,26 @@
+name: Desafio 01
+
+on: 
+  workflow_dispatch:
+    inputs:
+        image:
+            description: 'Image name'
+            type: string
+            required: true
+        tag:
+            description: 'Image Tag'
+            type: string
+            required: true
+
+jobs:
+    docker_image:
+        name: "Pull Image ${{ inputs.image }}:${{ inputs.tag }}"
+        runs-on: ubuntu-latest
+        steps:
+            - run: docker pull ${{ inputs.image }}:${{ inputs.tag }}
+              name: Pull Image
+            - run: docker image ls
+              name: List Images
+            - run: docker scout cves ${{ inputs.image }}:${{ inputs.tag }}
+              name: Scout Image
+
