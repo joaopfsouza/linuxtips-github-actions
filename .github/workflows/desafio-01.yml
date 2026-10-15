@@ -21,19 +21,19 @@ jobs:
 
             - name: Docker Pull
               run: |
-                echo ${{ github.events.input.imageTag }}
-                docker image pull ${{ github.events.input.imageTag }}
+                echo ${{ github.event.inputs.imageTag }}
+                docker image pull ${{ github.event.inputs.imageTag }}
             
             - name: Docker Image List
               run: |
-                IMAGE_NAME=$(cut ${{ github.events.input.imageTag }} -d ':' -f 1 )
+                IMAGE_NAME=$(cut ${{ github.event.inputs.imageTag }} -d ':' -f 1 )
                 docker image ls | grep $IMAGE_NAME
 
             - name: Docker Scout
               uses: docker/scout-action@v1.26.0
               with:
                 command:  quickview,cves,recommendations,sbom
-                image: ${{ github.events.input.imageTag}}
+                image: ${{ github.event.inputs.imageTag}}
                 only-severities: critical,high
 
             
