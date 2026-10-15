@@ -1,4 +1,4 @@
-name: Validacao de Imagens de Container
+name: Desafio 01 - Resolucao - Validacao de Imagens de Container 
 
 on:
   workflow_dispatch:
