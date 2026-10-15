@@ -26,7 +26,7 @@ jobs:
             
             - name: Docker Image List
               run: |
-                IMAGE_NAME=$(cut ${{ github.event.inputs.imageTag }} -d ':' -f 1 )
+                IMAGE_NAME=$( echo ${{ github.event.inputs.imageTag }} | cut -d ':' -f 1 )
                 docker image ls | grep $IMAGE_NAME
 
             - name: Docker Scout
