@@ -21,6 +21,7 @@ jobs:
 
             - name: Docker Pull
               run: |
+                echo ${{ github.events.input.imageTag }}
                 docker image pull ${{ github.events.input.imageTag }}
             
             - name: Docker Image List
