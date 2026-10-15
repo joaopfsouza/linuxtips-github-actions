@@ -32,7 +32,7 @@ jobs:
             - name: Docker Scout
               uses: docker/scout-action@v1.26.0
               with:
-                command: cves,recommendations,sbom
+                command: cves,recommendations,sbom,quickview
                 image: ${{ github.event.inputs.imageTag }}
                 only-severities: critical,high
 
