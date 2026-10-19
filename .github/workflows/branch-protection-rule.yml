@@ -1,7 +1,7 @@
 name: Teste Protection Rule
 
 on:
-    branch_protect:
+    branch_protection_rule:
         types: [created, edited, deleted]
 
 jobs:
