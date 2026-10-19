@@ -1,0 +1,11 @@
+name: Trigger Delete
+
+on:
+    delete
+
+jobs:
+    print-create-branch-or-tag:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Delete Notification
+              run: echo "Branch or tag deleted"
