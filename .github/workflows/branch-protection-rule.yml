@@ -1,0 +1,12 @@
+name: Teste Protection Rule
+
+on:
+    branch_protect:
+        types: [created, edited, deleted]
+
+jobs:
+    print-notification:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Modificação
+              run: echo "Alteração na Branch Protection Rule"
