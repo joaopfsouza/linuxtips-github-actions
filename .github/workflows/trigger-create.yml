@@ -1,0 +1,11 @@
+name: Trigger Create
+
+on:
+    create
+
+jobs:
+    print-create-branch-or-tag:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Create Notification
+              run: echo "Branch or tag created"
