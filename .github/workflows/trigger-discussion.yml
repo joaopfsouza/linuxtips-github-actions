@@ -1,0 +1,12 @@
+name: Trigger Discussion
+
+on:
+    discussion:
+        types: [created,edited,answered]
+
+jobs:
+    discussion:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Discussao Solicitado
+              run: echo "Trigger Discussion - Discussão criada/alterada/respondida"

@@ -2,6 +2,22 @@
 
 Git Flow - Rulesets
 
+## Api Deployment Curl
+
+```bash
+TOKEN="<classic token full access in REPO>"
+curl -X POST \
+    -H "Authorization: Bearer $TOKEN" \
+    -H "Accept: application/vnd.github.v3+json" \
+    https://api.github.com/repos/joaopfsouza/linuxtips-github-actions/deployments \
+    -d '{
+        "ref": "main",
+        "required_contexts": [],
+        "environment": "production",
+        "descrption": "Deployment triggered by cURL request"
+    }'
+```
+
 ## Referências
 
 - [runner-images](https://github.com/actions/runner-images)
