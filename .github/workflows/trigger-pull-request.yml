@@ -1,11 +1,13 @@
 name: Trigger Pull Request
 
 on:
-    pull-request:
+    pull_request:
         types: [opened, edited, deleted, reopened]
+        branches:
+            - 'main/**'
 
 jobs:
-    pull-request:
+    pull_request:
         runs-on: ubuntu-latest
         steps:
             - name: Pull Requeste Solicitado
