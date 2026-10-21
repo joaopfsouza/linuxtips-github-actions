@@ -20,7 +20,8 @@ curl -X POST \
 
 ## Triger Discussion
 
-Necessário habilitar a feature de discussion. En Settings -> Features, habilitar discussions
+Necessário habilitar a feature de discussion. En Settings -> Features, habilitar discussions.
+
 ## Referências
 
 - [runner-images](https://github.com/actions/runner-images)
