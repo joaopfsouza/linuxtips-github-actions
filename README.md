@@ -28,4 +28,4 @@ Necessário habilitar a feature de discussion. En Settings -> Features, habilita
 - [Actions - Upload Artifact](https://github.com/actions/upload-artifact)
 - [Download a Build Artifact](https://github.com/marketplace/actions/download-a-build-artifact)
 - [Workflow syntax for GitHub Actions](https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-syntax#example-of-onworkflow_dispatchinputs)
-- [Trigger workflows](https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows)
+- [Trigger workflows](https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflowsde)
