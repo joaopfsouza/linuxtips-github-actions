@@ -1,0 +1,12 @@
+name: Trigger Issues
+
+on:
+    issues:
+        types: [opened,edited,deleted]
+
+jobs:
+    issues:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Issues Solicitado
+              run: echo "Trigger Issues - Issues abertas/alteradas/deletadas"
