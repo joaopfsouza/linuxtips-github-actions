@@ -1,0 +1,12 @@
+name: Trigger Pull Request
+
+on:
+    pull-request:
+        types: [opened, edited, deleted, reopened]
+
+jobs:
+    pull-request:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Pull Requeste Solicitado
+              run: echo "Trigger Pull Request - Pull Request aberto/alterado/deletado/reaberto"
