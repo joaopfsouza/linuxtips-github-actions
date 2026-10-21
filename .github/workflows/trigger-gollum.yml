@@ -1,0 +1,11 @@
+name: Trigger Gollum
+
+on:
+    gollum
+
+jobs:
+    gollum:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Gollum Solicitado
+              run: echo "Trigger Gollum - Alteração na wiki..."
