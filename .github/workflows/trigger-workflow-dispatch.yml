@@ -8,8 +8,8 @@ on:
                 required: true
                 type: choice
                 options:
-                    - "15"
-                    - "17"
+                    - "18"
+                    - "20"
                     - "21"
 
 jobs:
