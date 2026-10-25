@@ -1,0 +1,13 @@
+namne: Trigger Schedule
+
+on:
+    schedule:
+        - cron: 40 15 * * 0
+
+
+jobs:
+    schedule:
+        runs-on: ubuntu-latest?
+        steps:
+            - name: Trigger Schedule
+              run: echo "Executando schedule, são $(date) UTC"

@@ -30,3 +30,4 @@ Necessário habilitar a feature de discussion. En Settings -> Features, habilita
 - [Download a Build Artifact](https://github.com/marketplace/actions/download-a-build-artifact)
 - [Workflow syntax for GitHub Actions](https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-syntax#example-of-onworkflow_dispatchinputs)
 - [Trigger workflows](https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflowsde)
+- [Crontab Guru](https://crontab.guru)
