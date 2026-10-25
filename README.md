@@ -22,6 +22,33 @@ curl -X POST \
 
 Necessário habilitar a feature de discussion. En Settings -> Features, habilitar discussions.
 
+## Trigger Status
+
+
+```bash
+
+TOKEN="<classic token full access in REPO>"
+curl -L \
+    -H "Authorization: Bearer $TOKEN" \
+    -H "Accept: application/vnd.github.v3+json" \
+  -H "X-GitHub-Api-Version: 2026-03-10" \
+  https://api.github.com/repos/OWNER/REPO/commits/REF/status
+```
+
+```bash
+TOKEN="<classic token full access in REPO>"
+curl -X POST \
+    -H "Authorization: Bearer $TOKEN" \
+    -H "Accept: application/vnd.github.v3+json" \
+    https://api.github.com/repos/joaopfsouza/linuxtips-github-actions/statuses \
+    -d '{
+        "state": "error",
+        "context": "external-tests",
+        "description:" "Simulação de erro via API"
+        "target_url": "https://google.com"
+    }'
+```
+
 ## Referências
 
 - [runner-images](https://github.com/actions/runner-images)
