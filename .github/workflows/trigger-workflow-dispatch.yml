@@ -4,7 +4,7 @@ on:
     workflow_dispatch:
         inputs:
             node-version:
-                node-version: 20
+                default: 20
                 required: true
                 type: choice
                 options:
