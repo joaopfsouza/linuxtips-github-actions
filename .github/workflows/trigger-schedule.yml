@@ -2,7 +2,7 @@ namne: Trigger Schedule
 
 on:
     schedule:
-        - cron: 39 15 * * 0
+        - cron: 45 15 * * 0
 
 
 jobs:
