@@ -1,6 +1,7 @@
 name: Roda a cada 5 minutos
 
 on:
+  workspace_dispatch
   schedule:
     - cron: '*/7 * * * *'
 
