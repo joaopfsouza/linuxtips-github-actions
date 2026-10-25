@@ -17,7 +17,7 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: Install npm
-              run: npm install ${{ github.inputs.node-version }}
+              run: npm install ${{ github.events.inputs.node-version }}
                     
 
 
