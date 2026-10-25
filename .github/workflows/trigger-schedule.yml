@@ -1,18 +1,17 @@
 name: Trigger Schedule
 
 on:
-    schedule:
-        - cron: 0 16 * * 0
-        - cron: '*/5 * * * 0'
-
+  schedule:
+    - cron: '20 16 * * 0'
+    - cron: '*/5 * * * 0'
 
 jobs:
-    schedule:
-        runs-on: ubuntu-latest
-        steps:
-            - name: Horário Agendado
-              if: github.event.schedule == '45 15 * * 0'
-              run: echo "Executando schedule, são $(date) UTC"
+  schedule:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Horário Agendado
+        if: github.event.schedule == '20 16 * * 0'
+        run: echo "Executando schedule, são $(date) UTC"
 
-            - name: Trigger Schedule
-              run: echo "Executando schedule, são $(date) UTC -  Toodos Crons"
+      - name: Trigger Schedule
+        run: echo "Executando schedule, são $(date) UTC - Todos os Crons"
