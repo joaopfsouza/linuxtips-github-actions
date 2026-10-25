@@ -1,0 +1,23 @@
+name: Trigger Workflow Dispatch
+
+on:
+    workflow_dispatch:
+        inputs:
+            node-version:
+                default: 20
+                required: true
+                type: choice
+                options:
+                    - "18"
+                    - "20"
+                    - "21"
+
+jobs:
+    install-npm:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Install npm
+              run: npm install ${{ github.event.inputs.node-version }}
+                    
+
+

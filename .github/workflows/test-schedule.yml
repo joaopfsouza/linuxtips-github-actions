@@ -1,0 +1,13 @@
+name: Roda a cada 5 minutos
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '*/7 * * * *'
+
+jobs:
+  tarefa:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Executar tarefa
+        run: echo "Executando a cada 5 minutos - $(date -u)"

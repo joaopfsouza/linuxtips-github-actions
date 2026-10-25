@@ -20,7 +20,38 @@ curl -X POST \
 
 ## Triger Discussion
 
-Necessário habilitar a feature de discussion. En Settings -> Features, habilitar discussions
+Necessário habilitar a feature de discussion. En Settings -> Features, habilitar discussions.
+
+## Trigger Status
+
+```bash
+TOKEN="<token com acesso full repo>"
+curl -X POST \
+    -H "Authorization: Bearer $TOKEN" \
+    -H "Accept: application/vnd.github.v3+json" \
+    https://api.github.com/repos/joaopfsouza/linuxtips-github-actions/statuses/<sha commit> \
+    -d '{
+        "state": "error",
+        "context": "external-tests",
+        "description": "Simulação de erro via API",
+        "target_url": "https://google.com"
+    }'
+```
+
+```bash
+TOKEN="<token com acesso full repo>"
+curl -X POST \
+    -H "Authorization: Bearer $TOKEN" \
+    -H "Accept: application/vnd.github.v3+json" \
+    https://api.github.com/repos/joaopfsouza/linuxtips-github-actions/statuses/<sha commit> \
+    -d '{
+        "state": "success",
+        "context": "external-tests",
+        "description": "Todos os testes passaram",
+        "target_url": "https://google.com"
+    }'
+```
+
 ## Referências
 
 - [runner-images](https://github.com/actions/runner-images)
@@ -29,3 +60,4 @@ Necessário habilitar a feature de discussion. En Settings -> Features, habilita
 - [Download a Build Artifact](https://github.com/marketplace/actions/download-a-build-artifact)
 - [Workflow syntax for GitHub Actions](https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-syntax#example-of-onworkflow_dispatchinputs)
 - [Trigger workflows](https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflowsde)
+- [Crontab Guru](https://crontab.guru)

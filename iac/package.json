@@ -1,0 +1,11 @@
+{
+    "name": "meeu-projeto",
+    "version": "1.0.0",
+    "description": "Projeto de exemplo",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Erro: nenhum teste especificado\" && exit 1"
+    },
+    "author": "JPFS",
+    "license": "ISC"
+}
