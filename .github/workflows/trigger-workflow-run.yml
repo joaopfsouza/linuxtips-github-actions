@@ -1,0 +1,13 @@
+name: Worflow RUN
+on:
+    workflow_run:
+        workflows: [Worflow Call - Reutilizavel]
+        type:
+            - completed
+
+jobs:
+    call-workflow:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Informa nome Curso
+              run: echo "O Workflow ´Worflow Call - Reutilizavel´ terminou de ser exewcutado"
