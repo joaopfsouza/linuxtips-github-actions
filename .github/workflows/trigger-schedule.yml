@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Horário Agendado
-        if: github.event.schedule == '15 21 * * *'
+        if: github.event.schedule == '15 21 * * 0'
         run: echo "Executando schedule, são $(date) UTC"
 
       - name: Trigger Schedule
