@@ -10,4 +10,4 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: Informa nome Curso
-              run: echo "O Workflow ´Worflow Call - Reutilizavel´ terminou de ser exewcutado"
+              run: echo "O Workflow ´Call Workflow - Compartilhado´ terminou de ser exewcutado"
