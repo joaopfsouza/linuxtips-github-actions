@@ -1,7 +1,7 @@
-name: Worflow RUN
+name: Worflow Run
 on:
     workflow_run:
-        workflows: [Worflow Call - Reutilizavel]
+        workflows: [Call Workflow - Compartilhado]
         type:
             - completed
 
