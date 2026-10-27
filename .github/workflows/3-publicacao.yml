@@ -18,4 +18,4 @@ jobs:
         if: ${{ github.event.workflow_run.conclusion == 'failure'}}
         steps:
             - name: Failure
-              run: echo Validação de Ambiente - Failure"
+              run: echo "Validação de Ambiente - Failure"
