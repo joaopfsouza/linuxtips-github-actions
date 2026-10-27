@@ -4,13 +4,13 @@ on:
     workflow_call:
         inputs:
             node_version:
-                default: '24'
+                default: "24"
                 required: true
                 tyoe: choice
                 options:
-                    - '24'
-                    - '25'
-                    - '26'
+                - "24"
+                - "25"
+                - "26"
             fail_pipeline:
                 default: false
                 type: boolean
