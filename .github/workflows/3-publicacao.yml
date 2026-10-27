@@ -2,7 +2,7 @@ name: Publicação Condicional
 
 on:
     workflow_run:
-        workflow: ["Validação de Ambiente"]
+        workflow: ['Validação de Ambiente']
         type:
             - completed
 
