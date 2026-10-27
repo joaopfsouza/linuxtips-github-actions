@@ -17,7 +17,7 @@ jobs:
         - name: Install Depencencias
           run: npm install ${{ inputs.node_version }}
         
-        - name: BUild App
+        - name: Build App
           run: echo "npm build app"
         
         - name: Teste
