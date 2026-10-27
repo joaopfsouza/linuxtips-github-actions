@@ -5,14 +5,10 @@ on:
         inputs:
             node_version:
                 default: "24"
-                type: choice
-                options:
-                - "24"
-                - "25"
-                - "26"
+                type: string
             fail_pipeline:
-                default: false
                 type: boolean
+                default: false
 
 jobs:
   build-test:

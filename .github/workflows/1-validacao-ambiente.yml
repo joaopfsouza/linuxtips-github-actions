@@ -5,8 +5,13 @@ on:
         inputs:
             node_version:
                 default: "24"
-                type: string
+                type: choice
+                options:
+                - "24"
+                - "25"
+                - "26"
             fail_pipeline:
+                required: true
                 type: boolean
                 default: false
 
