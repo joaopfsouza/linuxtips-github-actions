@@ -4,13 +4,13 @@ on:
     workflow_dispatch:
         inputs:
             node_version:
-                default: 24
+                default: '24'
                 required: true
                 type: choice
                 options:
-                    - 24
-                    - 25
-                    - 26
+                    - '24'
+                    - '25'
+                    - '26'
             fail_pipeline:
                 required: true
                 type: boolean
@@ -18,7 +18,7 @@ on:
 
 jobs:
     build_e_testes:
-        uses: ./.github/workflows/desafio02/2-build-e-testes.yml
+        uses: ./.github/workflows/2-build-e-testes.yml
         with:
             node_version: ${{ github.event.input.node_version }}
             fail_pipeline: ${{ github.event.input.fail_pipeline }}
