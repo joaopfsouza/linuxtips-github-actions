@@ -25,7 +25,7 @@ jobs:
 
         - name: Pipeline validate
           run: |
-            if [[ ${{ inputs.fail_pipeline == true }}]]; then
+            if ${{ inputs.fail_pipeline == true }}; then
                 echo "Pipeline fail"
                 exit 1
             else:
