@@ -19,5 +19,5 @@ jobs:
     build_e_testes:
         uses: ./.github/workflows/2-build-e-testes.yml
         with:
-            node_version: ${{ github.event.input.node_version }}
-            fail_pipeline: '${{ github.event.input.fail_pipeline }}'
+            node_version: ${{ github.event.inputs.node_version }}
+            fail_pipeline: '${{ github.event.inputs.fail_pipeline }}'
