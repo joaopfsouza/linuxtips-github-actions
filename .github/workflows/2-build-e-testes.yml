@@ -5,7 +5,7 @@ on:
         inputs:
             node_version:
                 default: "24"
-                tyoe: choice
+                type: choice
                 options:
                 - "24"
                 - "25"
