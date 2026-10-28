@@ -10,3 +10,8 @@ jobs:
               env:
                 CONTEXT: ${{ toJson(github) }}
               run: echo "$CONTEXT"
+            - name: Infos
+              run: |
+                echo "Proprietário do Repositório: ${{ github.repository_owner }}"
+                echo "SHA do Commit: ${{ github.sha }}"
+        
