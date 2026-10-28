@@ -1,0 +1,20 @@
+name: Valida Vulnerabilidade
+
+on:
+    pull_request:
+        types: [opened,edited]
+
+
+jobs:
+    context:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Check PR Title
+              title="${{ github.event.pull.pull_request.title }}"
+              if [[ $title =~ ^octacat ]]; then
+                echo "PR title start with 'octacat'"
+                exit 0
+              else
+                echo "PR title did not start with 'octacat'"
+                exit 1
+              fi

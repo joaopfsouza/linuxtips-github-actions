@@ -61,3 +61,5 @@ curl -X POST \
 - [Workflow syntax for GitHub Actions](https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-syntax#example-of-onworkflow_dispatchinputs)
 - [Trigger workflows](https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflowsde)
 - [Crontab Guru](https://crontab.guru)
+- [Fortalecimento de segurança para o GitHub Actions](https://docs.github.com/pt/enterprise-server@3.13/actions/how-tos/security-for-github-actions/security-guides/security-hardening-for-github-actions)
+- [Example contents of the github context](https://docs.github.com/en/actions/reference/workflows-and-actions/contexts#example-contents-of-the-github-context)
