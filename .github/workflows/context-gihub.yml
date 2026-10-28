@@ -19,7 +19,7 @@ jobs:
               run: echo "$CONTEXT"
             - name: Token
               env:
-                TOKENS: ${{toJson(GITHUB_TOKEN) }}                
+                TOKENS: ${{toJson(secrets.GITHUB_TOKEN) }}                
               run: |
                 echo "Tokens: $TOKENS"
         
