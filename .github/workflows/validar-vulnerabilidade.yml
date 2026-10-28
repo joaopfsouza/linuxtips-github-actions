@@ -9,6 +9,7 @@ jobs:
     valida-titulo-pr:
         runs-on: ubuntu-latest
         steps:
+            - uses: action/checkout@v7
             - name: Check PR Title
               title="${{ github.event.pull.pull_request.title }}"
               if [[ $title =~ ^octacat ]]; then
