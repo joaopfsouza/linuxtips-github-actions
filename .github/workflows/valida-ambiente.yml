@@ -1,0 +1,22 @@
+name: Valida Ambiente
+
+on:
+    workflow_dispatch:
+
+jobs:
+    valida-ambiente-prd:
+        if: github.ref_name == 'main'
+        runs-on: ubunut-latest
+        environment: production
+        steps:
+            - name: Print Valor
+              run: echo "Estou no ambiente ${{ vars.AMBIENTE }}"
+
+
+    valida-ambiente-stg:
+        if: github.ref_name == 'staging'
+        runs-on: ubunut-latest
+        environment: staging
+        steps:
+            - name: Print Valor
+              run: echo "Estou no ambiente ${{ vars.AMBIENTE }}"
