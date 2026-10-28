@@ -8,7 +8,7 @@ jobs:
     valida-titulo-pr:
         runs-on: ubuntu-latest
         steps:
-            - uses: action/checkout@v7
+            - uses: actions/checkout@v7
             - name: Check PR Title
               run: |
                 title="${{ github.event.pull_request.title }}"
