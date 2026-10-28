@@ -1,7 +1,7 @@
 name: Context Github
 
 on: 
-    push
+    push:
     workflow_dispatch:
         inputs:
             name:
