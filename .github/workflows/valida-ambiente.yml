@@ -3,10 +3,10 @@ name: Valida Ambiente
 on:
     workflow_dispatch:
 
+# global
+env:
+    NOME_CURSO: GITHUB
 jobs:
-    # global
-    env:
-        NOME_CURSO: GITHUB
     valida-ambiente-prd:
         env:
             DIA_DA_SEMANA: sabado
