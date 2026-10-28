@@ -29,9 +29,10 @@ jobs:
         runs-on: ubuntu-latest
         environment: staging
         steps:
-            env:
-              DIA_MES: 20
             - name: Print Valor
+              env:
+                DIA_MES: 20
               run: |
                 echo "Estou no ambiente ${{ vars.AMBIENTE }}"
                 echo "Hoje é dia ${{ env.DIA_MES }}, ${{ env.DIA_DA_SEMANA }}, no curso ${{ env.NOME_CURSO }}"
+
