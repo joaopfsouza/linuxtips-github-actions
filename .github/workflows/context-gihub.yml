@@ -1,6 +1,13 @@
 name: Context Github
 
-on: push
+on: 
+    push
+    workflow_dispacth:
+        inputs:
+            name:
+                type: string
+                required: false
+                default: "ceu_azul"
 
 jobs:
     context-github:
