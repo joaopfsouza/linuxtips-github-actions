@@ -6,7 +6,7 @@ on:
 jobs:
     valida-ambiente-prd:
         if: github.ref_name == 'main'
-        runs-on: ubunut-latest
+        runs-on: ubuntu-latest
         environment: production
         steps:
             - name: Print Valor
@@ -15,7 +15,7 @@ jobs:
 
     valida-ambiente-stg:
         if: github.ref_name == 'staging'
-        runs-on: ubunut-latest
+        runs-on: ubuntu-latest
         environment: staging
         steps:
             - name: Print Valor
