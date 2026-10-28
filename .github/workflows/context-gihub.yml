@@ -18,7 +18,10 @@ jobs:
                 CONTEXT: ${{ toJson(github) }}
               run: echo "$CONTEXT"
             - name: Infos
+              env:
+                OWNER: ${{ github.repository_owner }}
+                SHA: ${{ github.sha }}
               run: |
-                echo "Proprietário do Repositório: ${{ github.repository_owner }}"
-                echo "SHA do Commit: ${{ github.sha }}"
+                echo "Proprietário do Repositório: $OWNER"
+                echo "SHA do Commit: $SHA"
         
