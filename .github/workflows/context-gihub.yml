@@ -17,6 +17,12 @@ jobs:
               env:
                 CONTEXT: ${{ toJson(github) }}
               run: echo "$CONTEXT"
+            - name: Token
+              env:
+                TOKENS: ${{toJson(GITHUB_TOKEN) }}                
+              run: |
+                echo "Tokens: $TOKENS"
+        
             - name: Infos
               env:
                 OWNER: ${{ github.repository_owner }}
