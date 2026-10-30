@@ -13,4 +13,6 @@ jobs:
               run: chmod +x ./scripts/valida-tf.sh
 
             - name: Chama o script
+              env:
+                TERRAFORM_VERSION: ${{ vars.TERRAFORM_VERSION }}
               run: ./scripts/valida-tf.sh
