@@ -6,7 +6,7 @@ DOWNLOAD_URL="https://github.com/hashicorp/terraform/archive/refs/tags/v${TERRAF
 
 echo "Instalando Terraform ${TERRAFORM_VERSION}..."
 curl -sfL "$DOWNLOAD_URL" -o /tmp/terraform.zip
-unzip -q /tmp/terraform.zip -d ~/bin && ls -lha ~/bin && chmod +x "$HOME/bin/terraform" && export PATH="$HOME/bin:$PATH"
+unzip -q /tmp/terraform.zip -d ~/bin && ls -lha ~/bin && chmod +x "$HOME/bin/terraform-${TERRAFORM_VERSION}" && export PATH="$HOME/bin:$PATH"
 terraform -version
 
 ############
