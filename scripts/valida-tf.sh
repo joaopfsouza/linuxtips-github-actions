@@ -4,9 +4,9 @@ set -eou pipefail
 ## CONFIGURAÇÂO TERRAFORM
 DOWNLOAD_URL="https://github.com/hashicorp/terraform/archive/refs/tags/v${TERRAFORM_VERSION}.zip"
 
-echo "Instalando Terraform ${TERRAFORM_VERSION}.."
+echo "Instalando Terraform ${TERRAFORM_VERSION}..."
 curl -sfL "$DOWNLOAD_URL" -o /tmp/terraform.zip
-unzip -q /tmp/terraform.zip -d ~/bin && export PATH="$HOME/bin:$PATH"
+unzip -q /tmp/terraform.zip -d ~/bin && chmod +x "$HOME/bin/terraform" && export PATH="$HOME/bin:$PATH"
 terraform -version
 
 ############
