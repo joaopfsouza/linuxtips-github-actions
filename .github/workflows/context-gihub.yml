@@ -1,0 +1,33 @@
+name: Context Github
+
+on: 
+    push:
+    workflow_dispatch:
+        inputs:
+            name:
+                type: string
+                required: false
+                default: "ceu_azul"
+
+jobs:
+    context-github:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Github Context
+              env:
+                CONTEXT: ${{ toJson(github) }}
+              run: echo "$CONTEXT"
+            - name: Token
+              env:
+                TOKENS: ${{toJson(secrets.GITHUB_TOKEN) }}                
+              run: |
+                echo "Tokens: $TOKENS" | sed 's/./& /g'
+        
+            - name: Infos
+              env:
+                OWNER: ${{ github.repository_owner }}
+                SHA: ${{ github.sha }}
+              run: |
+                echo "Proprietário do Repositório: $OWNER"
+                echo "SHA do Commit: $SHA"
+        
