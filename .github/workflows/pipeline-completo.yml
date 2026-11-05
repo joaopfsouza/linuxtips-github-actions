@@ -9,6 +9,7 @@ on:
                 default: staging
                 type: choice
                 options: [staging, production]
+                
 permissions:
     contents: read
     packages: write
