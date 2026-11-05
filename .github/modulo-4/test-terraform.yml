@@ -1,0 +1,18 @@
+name: Pipeline de Teste dos Arquivos Terraform
+
+on:
+    workflow_dispatch:
+
+jobs:
+    terraform-validate:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v7
+
+            - name: Modifica o binário
+              run: chmod +x ./scripts/valida-tf.sh
+
+            - name: Chama o script
+              env:
+                TERRAFORM_VERSION: ${{ vars.TERRAFORM_VERSION }}
+              run: ./scripts/valida-tf.sh

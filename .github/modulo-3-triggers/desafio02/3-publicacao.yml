@@ -1,0 +1,21 @@
+name: Publicação Condicional
+
+on:
+    workflow_run:
+        workflows: [Validação de Ambiente]
+        type:
+            - completed
+
+jobs:
+    on-success:
+        runs-on: ubuntu-latest
+        if: ${{ github.event.workflow_run.conclusion == 'success' }}
+        steps:
+            - name: Pass with success
+              run: echo "Validação de Ambiente - Pass with success"
+    on-failure:
+        runs-on: ubuntu-latest
+        if: ${{ github.event.workflow_run.conclusion == 'failure'}}
+        steps:
+            - name: Failure
+              run: echo "Validação de Ambiente - Failure"

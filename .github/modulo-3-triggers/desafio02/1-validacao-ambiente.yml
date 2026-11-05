@@ -1,0 +1,23 @@
+name: Validação de Ambiente
+
+on:
+    workflow_dispatch:
+        inputs:
+            node_version:
+                default: "24"
+                type: choice
+                options:
+                - "24"
+                - "25"
+                - "26"
+            fail_pipeline:
+                required: true
+                type: boolean
+                default: false
+
+jobs:
+    build_e_testes:
+        uses: ./.github/workflows/2-build-e-testes.yml
+        with:
+            node_version: ${{ github.event.inputs.node_version }}
+            fail_pipeline: ${{ github.event.inputs.fail_pipeline }}

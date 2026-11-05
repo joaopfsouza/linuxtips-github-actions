@@ -1,0 +1,34 @@
+name: Build e Testes
+
+on:
+    workflow_call:
+        inputs:
+            node_version:
+                default: "24"
+                type: string
+            fail_pipeline:
+                type: string
+                default: false
+
+jobs:
+  build-test:
+    runs-on: ubuntu-latest
+    steps:
+        - name: Install Depencencias
+          run: npm install ${{ inputs.node_version }}
+        
+        - name: Build App
+          run: echo "npm build app"
+        
+        - name: Teste
+          run: echo "npm test app"
+
+        - name: Pipeline validate
+          run: |
+            if [[ ${{ inputs.fail_pipeline }} == 'true' ]]; then
+                echo "Pipeline fail"
+                exit 1
+            else:
+                echo "Pipeline success"
+            fi
+          
