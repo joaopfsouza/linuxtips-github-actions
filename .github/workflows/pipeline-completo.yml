@@ -19,6 +19,16 @@ jobs:
         steps:
             - name: Checkout
               uses: actions/checkout@v7
+            
+            - uses: actions/setup-node@v4
+              with:
+                node-version: '20'
+                cache: 'npm'
+                cache-dependency-path: app/package-lock.json
+            
+            - name: Install Deps
+              working-directory: app
+              run: npm ci
 
             - name: Lint NPM
               id: lint
@@ -31,6 +41,12 @@ jobs:
         steps:
             - name: Checkout Code
               uses: actions/checkout@v7
+
+            - uses: actions/setup-node@v4
+              with:
+                node-version: '20'
+                cache: 'npm'
+                cache-dependency-path: app/package-lock.json
 
             - name: Install Dependencies
               id: deps
