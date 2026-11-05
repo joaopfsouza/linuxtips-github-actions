@@ -15,7 +15,7 @@ jobs:
 
     quality-gate: # JOB ID = quality-gate
         needs: build
-        runs-on: ubunut-latest
+        runs-on: ubuntu-latest
         steps:
             - name: Quality Gate Tests
               run: |
