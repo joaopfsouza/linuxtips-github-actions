@@ -52,7 +52,7 @@ jobs:
             - name: Install Dependencies
               id: deps
               working-directory: app
-              run: npm ci
+              run: npm install --package-lock-only --ignore-scripts && npm ci
 
             - name: Run unit tests
               id: test
