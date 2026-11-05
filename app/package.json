@@ -1,0 +1,9 @@
+{
+    "name": "applicacao-aula-5",
+    "version": "1.0.0",
+    "type": "module",
+    "main": "src/index.js",
+    "scripts": {
+        "start": "node src/server.js",
+    }
+}
