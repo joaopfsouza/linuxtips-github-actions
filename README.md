@@ -64,3 +64,4 @@ curl -X POST \
 - [Fortalecimento de segurança para o GitHub Actions](https://docs.github.com/pt/enterprise-server@3.13/actions/how-tos/security-for-github-actions/security-guides/security-hardening-for-github-actions)
 - [Example contents of the github context](https://docs.github.com/en/actions/reference/workflows-and-actions/contexts#example-contents-of-the-github-context)
 - [Comandos de fluxo de trabalho para o GitHub Actions](https://docs.github.com/pt/actions/reference/workflows-and-actions/workflow-commands)
+- [Introduction to GitHub Packages](https://docs.github.com/en/packages/learn-github-packages/introduction-to-github-packages)
