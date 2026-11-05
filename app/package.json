@@ -1,9 +1,22 @@
 {
-    "name": "applicacao-aula-5",
+    "name": "aplicacao-aula-5",
     "version": "1.0.0",
     "type": "module",
     "main": "src/index.js",
     "scripts": {
         "start": "node src/server.js",
+        "lint": "eslint src --max-warnings=0",
+        "test": "node --experimental-vm-modules node_modules/.bin/jest --coverage --coverageReporters=json-summary --coverageDirectory=coverage && cp coverage/coverage-summary.json report.json"
+    },
+    "dependencies": {
+        "express": "^4.18.2"
+    },
+    "devDependencies": {
+        "eslint": "^8.57.0",
+        "eslint-config-standard": "^17.1.0",
+        "eslint-plugin-import": "^2.29.0",
+        "eslint-plugin-n": "^16.0.0",
+        "eslint-plugin-promise": "^6.1.1",
+        "jest": "^30.0.5"
     }
 }
