@@ -1,3 +1,3 @@
-export function soma(a,b) {
-    return Number(a) + Number(b)
+export function soma (a, b) {
+  return Number(a) + Number(b)
 }
