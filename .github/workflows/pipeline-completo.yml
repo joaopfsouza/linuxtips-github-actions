@@ -9,7 +9,7 @@ on:
                 default: staging
                 type: choice
                 options: [staging, production]
-                
+
 permissions:
     contents: read
     packages: write
@@ -25,7 +25,7 @@ jobs:
               with:
                 node-version: '20'
                 cache: 'npm'
-                cache-dependency-path: app/package-lock.json
+                cache-dependency-path: app/package.json
             
             - name: Install Deps
               working-directory: app
@@ -47,7 +47,7 @@ jobs:
               with:
                 node-version: '20'
                 cache: 'npm'
-                cache-dependency-path: app/package-lock.json
+                cache-dependency-path: app/package.json
 
             - name: Install Dependencies
               id: deps
