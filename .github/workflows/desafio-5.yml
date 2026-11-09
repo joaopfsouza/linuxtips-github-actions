@@ -25,7 +25,7 @@ jobs:
         id: lint
         run: |
           npm run lint
-          echo "isOK='tudo certo'" >> "$GITHUB_OUTPUT"
+          echo "isOK=tudo_certo" >> "$GITHUB_OUTPUT"
         working-directory: desafio-5
 
   tests:
@@ -46,7 +46,7 @@ jobs:
         - name: Run Test
           run: |
 
-            echo ${{ needs.lint.ouputs.isOK }}
+            echo "${{ needs.lint.ouputs.isOK }}"
           
             npx jest --runInBand --coverage
           working-directory: desafio-5
