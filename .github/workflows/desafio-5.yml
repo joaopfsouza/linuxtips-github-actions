@@ -107,10 +107,10 @@ jobs:
       - uses: actions/checkout@v7
 
       - uses: actions/setup-node@v7
-          with:
-            version: 20
-            cache: 'npm'
-            cache-dependency-path: desafio-5/package.json
+        with:
+          version: 20
+          cache: 'npm'
+          cache-dependency-path: desafio-5/package.json
 
 
       - name: Set Up Docker Build
