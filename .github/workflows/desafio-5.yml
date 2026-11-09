@@ -125,7 +125,7 @@ jobs:
 
       - name: Docker Build 
         id: docker
-        working_directory: desafio-5
+        working-directory: desafio-5
         run: |
           docker build -t $IMAGE_NAME .
 
