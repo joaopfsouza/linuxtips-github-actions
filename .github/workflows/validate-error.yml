@@ -20,6 +20,7 @@ jobs:
         working-directory: app/app-error
 
       - name: Script Error
+        working-directory: app/app-error
         run: |
           set -o pipefail
           node index.js > app.log 2>&1 || EXIT=$?
@@ -28,3 +29,12 @@ jobs:
           echo "::endgroup::"
           echo "Exit code capturado: ${EXIT:-0}"
           exit ${EXIT:-0}
+
+      - name: Upload Error
+        uses: actions/download-artifact@v4
+        if: failure()
+        working-directory: app/app-error
+        with:
+          name: full-app-logs
+          pat: app.log
+
