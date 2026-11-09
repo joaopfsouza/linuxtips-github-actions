@@ -7,6 +7,8 @@ on:
 jobs:
   lint:
     runs-on: ubunutu-latest
+    output: 
+      isOK: 
     steps:
       
       - uses: actions/checkout@v7
@@ -19,8 +21,13 @@ jobs:
         run: npm install --no-audit --no-progress
         working-directory: desafio-5
 
+      - name: Run Lint
+        run: npm run lint
+        working-directory: desafio-5
+
   tests:
       runs-on: ubunutu-latest
+      needs: lint
       steps:
         
         - uses: actions/checkout@v7
