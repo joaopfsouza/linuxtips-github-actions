@@ -130,7 +130,7 @@ jobs:
           docker build -t $IMAGE_NAME .
 
       - name: Docker Pull
-        runs: |
+        run: |
           docker pull $IMAGE_NAME
         
 
