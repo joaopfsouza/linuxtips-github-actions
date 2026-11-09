@@ -1,0 +1,7 @@
+{
+    "name": "giropops-error",
+    "type": "module",
+    "scripts": {
+        "start": "node index.js"
+    }
+}
