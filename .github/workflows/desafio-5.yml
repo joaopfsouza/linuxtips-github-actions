@@ -58,10 +58,10 @@ jobs:
 
             # cat coverage/coverage-summary.json
 
-            echo "branches_pct=${jq '.total.branches.pct' coverage/coverage-summary.json}" >> "$GITHUB_OUTPUT"
-            echo "functions_pct=${jq '.total.functions.pct' coverage/coverage-summary.json}" >> "$GITHUB_OUTPUT"
-            echo "statements_pct=${jq '.total.statements.pct' coverage/coverage-summary.json}" >> "$GITHUB_OUTPUT"
-            echo "lines_pct=${jq '.total.lines.pct' coverage/coverage-summary.json}" >> "$GITHUB_OUTPUT"
+            echo "branches_pct=$(jq '.total.branches.pct' coverage/coverage-summary.json)" >> "$GITHUB_OUTPUT"
+            echo "functions_pct=$(jq '.total.functions.pct' coverage/coverage-summary.json)" >> "$GITHUB_OUTPUT"
+            echo "statements_pct=$(jq '.total.statements.pct' coverage/coverage-summary.json)" >> "$GITHUB_OUTPUT"
+            echo "lines_pct=$(jq '.total.lines.pct' coverage/coverage-summary.json)" >> "$GITHUB_OUTPUT"
 
           working-directory: desafio-5
 
