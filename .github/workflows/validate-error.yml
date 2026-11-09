@@ -33,8 +33,7 @@ jobs:
       - name: Upload Error
         uses: actions/upload-artifact@v4
         if: failure()
-        working-directory: app/app-error
         with:
           name: full-app-logs
-          pat: app.log
+          pat: app/app-error/app.log
 
