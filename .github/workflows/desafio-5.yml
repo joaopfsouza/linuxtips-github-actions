@@ -26,6 +26,7 @@ jobs:
         run: |
           npm run lint
           echo "isOK=67" >> "$GITHUB_OUTPUT"
+          echo $GITHUB_OUTPUT
         working-directory: desafio-5
 
   tests:
@@ -48,7 +49,7 @@ jobs:
             ISOK: ${{ needs.lint.ouputs.isOK }}
           run: |
 
-            echo $ISOK
+            echo ${ISOK}
           
             npx jest --runInBand --coverage
           working-directory: desafio-5
