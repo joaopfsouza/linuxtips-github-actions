@@ -7,7 +7,7 @@
   "scripts": {
     "start": "node index.js 'MyP@ssw0rd!'",
     "lint": "eslint .",
-    "test": "jest --runInBand"
+    "test": "jest --runInBand --coverage"
   },
   "engines": { "node": ">=18" },
   "license": "MIT",

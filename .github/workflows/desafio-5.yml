@@ -52,5 +52,5 @@ jobs:
             echo ${ISOK}
           
             npx jest --runInBand --coverage
+            ls -lha 
           working-directory: desafio-5
-
