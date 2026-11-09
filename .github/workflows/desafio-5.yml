@@ -53,6 +53,6 @@ jobs:
           
             npx jest --runInBand --coverage
             
-            ls -lha
+            ls -lha coverage
 
           working-directory: desafio-5
