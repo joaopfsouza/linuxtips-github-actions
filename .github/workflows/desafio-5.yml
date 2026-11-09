@@ -8,7 +8,7 @@ jobs:
   lint:
     runs-on: ubunutu-latest
     output: 
-      isOK: 
+      isOK: ${{ steps.lint.output.isOK }}
     steps:
       
       - uses: actions/checkout@v7
@@ -22,7 +22,10 @@ jobs:
         working-directory: desafio-5
 
       - name: Run Lint
-        run: npm run lint
+        id: lint
+        run: |
+          npm run lint
+          echo "isOK='tudo certo'" >> "$GITHUB_OUTPUT"
         working-directory: desafio-5
 
   tests:
@@ -41,6 +44,10 @@ jobs:
           working-directory: desafio-5
 
         - name: Run Test
-          run: npx jest --runInBand --coverage
+          run: |
+
+            echo ${{ needs.lint.ouput.isOK }}
+          
+            npx jest --runInBand --coverage
           working-directory: desafio-5
 
