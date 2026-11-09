@@ -49,8 +49,10 @@ jobs:
             ISOK: ${{ needs.lint.outputs.isOK }}
           run: |
 
-            echo ${ISOK}
+            echo "Qual o numero? $ISOK"
           
             npx jest --runInBand --coverage
-            ls -lha 
+            
+            ls -lha
+
           working-directory: desafio-5
