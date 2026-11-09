@@ -39,7 +39,7 @@ jobs:
           with:
             version: 20
 
-        - name: Run Test
+        - name: Install Deps
           run: npm install --no-audit --no-progress
           working-directory: desafio-5
 
