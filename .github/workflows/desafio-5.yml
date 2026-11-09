@@ -46,7 +46,7 @@ jobs:
 
         - name: Run Test
           env:
-            ISOK: ${{ needs.lint.ouputs.isOK }}
+            ISOK: ${{ needs.lint.outputs.isOK }}
           run: |
 
             echo ${ISOK}
