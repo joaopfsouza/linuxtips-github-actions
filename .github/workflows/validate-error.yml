@@ -35,5 +35,5 @@ jobs:
         if: failure()
         with:
           name: full-app-logs
-          pat: app/app-error/app.log
+          path: app/app-error/app.log
 
