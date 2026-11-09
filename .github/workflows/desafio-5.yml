@@ -44,9 +44,11 @@ jobs:
           working-directory: desafio-5
 
         - name: Run Test
+          env:
+            ISOK: ${{ needs.lint.ouputs.isOK }}
           run: |
 
-            echo "${{ needs.lint.ouputs.isOK }}"
+            echo $ISOK
           
             npx jest --runInBand --coverage
           working-directory: desafio-5
