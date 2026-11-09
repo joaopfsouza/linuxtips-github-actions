@@ -69,7 +69,7 @@ jobs:
         - name: Run Test
           id: validate
           continue-on-error: true
-          if: ${{ steps.test.outputs.branches_pct >= 70 and   steps.test.outputs.functions_pct >= 70 and  steps.test.outputs.statements_pct >= 70 and  steps.test.outputs.lines_pct >= 70}}
+          if: ${{ steps.test.outputs.branches_pct >= 70 && steps.test.outputs.functions_pct >= 70 && steps.test.outputs.statements_pct >= 70 && steps.test.outputs.lines_pct >= 70}}
           run: |
             echo "::notice::PASS"
 
