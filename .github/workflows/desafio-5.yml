@@ -67,6 +67,6 @@ jobs:
 
         - name: Run Test
           id: validate
-          if: ${{ steps.test.outputs.branches >= 30 }}
+          if: ${{ steps.test.outputs.branches_pct >= 30 }}
           run: |
             echo "::success::PASS"
