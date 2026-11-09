@@ -55,6 +55,6 @@ jobs:
             
             ls -lha coverage/
 
-            cat coverage/coverage-final.json
+            cat coverage/coverage-summary.json
 
           working-directory: desafio-5
