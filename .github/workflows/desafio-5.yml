@@ -122,9 +122,9 @@ jobs:
         run: |
           docker build -t $IMAGE_NAME .
 
-      - name: Docker Pull
+      - name: Docker Push
         run: |
-          docker pull $IMAGE_NAME
+          docker push $IMAGE_NAME
         
 
 
