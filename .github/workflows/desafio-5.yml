@@ -25,7 +25,7 @@ jobs:
         id: lint
         run: |
           npm run lint
-          echo "isOK=tudo" >> "$GITHUB_OUTPUT"
+          echo "isOK=67" >> "$GITHUB_OUTPUT"
         working-directory: desafio-5
 
   tests:
