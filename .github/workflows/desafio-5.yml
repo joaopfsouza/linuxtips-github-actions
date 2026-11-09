@@ -1,0 +1,39 @@
+name: Desafio 5 - Meditor de Forca de Senhas
+
+on:
+  workflow_dispatch:
+
+
+jobs:
+  lint:
+    runs-on: ubunutu-latest
+    steps:
+      
+      - uses: actions/checkout@v7
+      
+      - uses: actions/setup-node
+        with:
+          version: 20
+
+      - name: Install Deps
+        run: npm install --no-audit --no-progress
+        working-directory: desafio-5
+
+  tests:
+      runs-on: ubunutu-latest
+      steps:
+        
+        - uses: actions/checkout@v7
+        
+        - uses: actions/setup-node
+          with:
+            version: 20
+
+        - name: Run Test
+          run: npm install --no-audit --no-progress
+          working-directory: desafio-5
+
+        - name: Run Test
+          run: npx jest --runInBand --coverage
+          working-directory: desafio-5
+
