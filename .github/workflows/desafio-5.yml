@@ -51,7 +51,7 @@ jobs:
 
             echo "Qual o numero? $ISOK"
           
-            npx jest --runInBand --coverage
+            npx jest --runInBand --coverage --coverageReporters="json-summary" 
             
             ls -lha coverage/
 
