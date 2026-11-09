@@ -54,14 +54,14 @@ jobs:
           
             npx jest --runInBand --coverage --coverageReporters="json-summary" 
             
-            ls -lha coverage/
+            # ls -lha coverage/
 
-            cat coverage/coverage-summary.json
+            # cat coverage/coverage-summary.json
 
-            echo "branches_pct=${jq '.total.branches.pct' coverage-summary.json}" >> "$GITHUB_OUTPUT"
-            echo "functions_pct=${jq '.total.functions.pct' coverage-summary.json}" >> "$GITHUB_OUTPUT"
-            echo "statements_pct=${jq '.total.statements.pct' coverage-summary.json}" >> "$GITHUB_OUTPUT"
-            echo "lines_pct=${jq '.total.lines.pct' coverage-summary.json}" >> "$GITHUB_OUTPUT"
+            echo "branches_pct=${jq '.total.branches.pct' coverage/coverage-summary.json}" >> "$GITHUB_OUTPUT"
+            echo "functions_pct=${jq '.total.functions.pct' coverage/coverage-summary.json}" >> "$GITHUB_OUTPUT"
+            echo "statements_pct=${jq '.total.statements.pct' coverage/coverage-summary.json}" >> "$GITHUB_OUTPUT"
+            echo "lines_pct=${jq '.total.lines.pct' coverage/coverage-summary.json}" >> "$GITHUB_OUTPUT"
 
           working-directory: desafio-5
 
