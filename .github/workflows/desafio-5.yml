@@ -45,6 +45,7 @@ jobs:
           working-directory: desafio-5
 
         - name: Run Test
+          id: test
           env:
             ISOK: ${{ needs.lint.outputs.isOK }}
           run: |
@@ -57,4 +58,15 @@ jobs:
 
             cat coverage/coverage-summary.json
 
+            echo "branches_pct=${jq '.total.branches.pct' coverage-summary.json}" >> "$GITHUB_OUTPUT"
+            echo "functions_pct=${jq '.total.functions.pct' coverage-summary.json}" >> "$GITHUB_OUTPUT"
+            echo "statements_pct=${jq '.total.statements.pct' coverage-summary.json}" >> "$GITHUB_OUTPUT"
+            echo "lines_pct=${jq '.total.lines.pct' coverage-summary.json}" >> "$GITHUB_OUTPUT"
+
           working-directory: desafio-5
+
+        - name: Run Test
+          id: validate
+          if: ${{ steps.test.outputs.branches >= 30 }}
+          run: |
+            echo "::success::PASS"
