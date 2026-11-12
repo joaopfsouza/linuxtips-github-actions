@@ -114,6 +114,8 @@ jobs:
           path: app.log
 ```
 
+## Issues
+
 ## Referências
 
 - [runner-images](https://github.com/actions/runner-images)
