@@ -1,0 +1,39 @@
+name: Error Validate
+
+on:
+  workflow_dispatch:
+
+jobs:
+  run-app:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install Node jobs
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install deps
+        run: npm install --no-audit --no-progress
+        working-directory: app/app-error
+
+      - name: Script Error
+        working-directory: app/app-error
+        run: |
+          set -o pipefail
+          node index.js > app.log 2>&1 || EXIT=$?
+          seq 1 500 | awk '{printf "lixo-%d\n",$1}' >> app.log
+          tail -n 15 app.log
+          echo "::endgroup::"
+          echo "Exit code capturado: ${EXIT:-0}"
+          exit ${EXIT:-0}
+
+      - name: Upload Error
+        uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: full-app-logs
+          path: app/app-error/app.log
+

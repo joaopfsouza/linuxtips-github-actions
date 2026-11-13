@@ -1,0 +1,15 @@
+name: Worflow Call - Reutilizavel
+
+on:
+    workflow_call:
+        inputs:
+            curso:
+                required: true
+                type: string
+
+jobs:
+    qual-curso:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Informa nome Curso
+              run: echo "O nome do seu curso é ${{ inputs.curso }}"

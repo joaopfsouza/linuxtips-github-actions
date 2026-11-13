@@ -1,0 +1,132 @@
+name: Desafio 5 - Meditor de Forca de Senhas
+
+on:
+  workflow_dispatch:
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    outputs: 
+      isOK: ${{ steps.lint.outputs.isOK }}
+    steps:
+      
+      - uses: actions/checkout@v7
+      
+      - uses: actions/setup-node@v7
+        with:
+          version: 20
+          cache: 'npm'
+          cache-dependency-path: desafio-5/package.json
+
+      - name: Install Deps
+        run: npm install --no-audit --no-progress
+        working-directory: desafio-5
+
+      - name: Run Lint
+        id: lint
+        run: |
+          npm run lint
+          echo "isOK=67" >> "$GITHUB_OUTPUT"
+          echo $GITHUB_OUTPUT
+        working-directory: desafio-5
+
+  test:
+      runs-on: ubuntu-latest
+      needs: lint
+      steps:
+        
+        - uses: actions/checkout@v7
+        
+        - uses: actions/setup-node@v7
+          with:
+            version: 20
+            cache: 'npm'
+            cache-dependency-path: desafio-5/package.json
+
+        - name: Install Deps
+          run: npm install --no-audit --no-progress
+          working-directory: desafio-5
+
+        - name: Run Test
+          id: test
+          continue-on-error: true
+          env:
+            ISOK: ${{ needs.lint.outputs.isOK }}
+          run: |
+
+            echo "Qual o numero? $ISOK"
+          
+            npx jest --runInBand --coverage --coverageReporters="json-summary" 
+            
+
+            echo "branches_pct=$(jq '.total.branches.pct' coverage/coverage-summary.json)" >> "$GITHUB_OUTPUT"
+            echo "functions_pct=$(jq '.total.functions.pct' coverage/coverage-summary.json)" >> "$GITHUB_OUTPUT"
+            echo "statements_pct=$(jq '.total.statements.pct' coverage/coverage-summary.json)" >> "$GITHUB_OUTPUT"
+            echo "lines_pct=$(jq '.total.lines.pct' coverage/coverage-summary.json)" >> "$GITHUB_OUTPUT"
+
+          working-directory: desafio-5
+
+        - name: Run Test
+          id: validate
+          continue-on-error: true
+          if: ${{ steps.test.outputs.branches_pct >= 70 && steps.test.outputs.functions_pct >= 70 && steps.test.outputs.statements_pct >= 70 && steps.test.outputs.lines_pct >= 70}}
+          run: |
+            echo "::notice::PASS"
+
+  test2:
+      runs-on: ubuntu-latest
+      needs: lint
+      steps:
+        
+        - uses: actions/checkout@v7
+        
+        - uses: actions/setup-node@v7
+          with:
+            version: 20
+            cache: 'npm'
+            cache-dependency-path: desafio-5/package.json
+
+        - name: Install Deps
+          run: npm install --no-audit --no-progress
+          working-directory: desafio-5
+
+        - name: Run Test
+          id: test
+          run: |
+            npx jest --runInBand --coverage 
+          working-directory: desafio-5
+
+  docker:
+    runs-on: ubuntu-latest
+    needs: test
+    env:
+      IMAGE_NAME: ghcr.io/${{ github.repository }}/desafio5:${{ github.sha }}
+    permissions:
+      contents: read
+      packages: write
+    steps:
+
+      - uses: actions/checkout@v7
+
+      - name: Set Up Docker Build
+        id: docker_login
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Docker Build 
+        id: docker
+        working-directory: desafio-5
+        run: |
+          docker build -t $IMAGE_NAME .
+
+      - name: Docker Push
+        run: |
+          docker info | grep Username 
+          docker push $IMAGE_NAME
+        
+
+
+
