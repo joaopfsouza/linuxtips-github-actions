@@ -12,6 +12,6 @@ jobs:
         steps:
             - uses: actions/add-to-project@2.0.1
               with: 
-                 project-url: https://github.com/users/${{ github.repository_owner }}/projects/5
+                project-url: https://github.com/users/${{ github.repository_owner }}/projects/5
                 github-token: ${{ secrets.PROJECT_SECRET }}
                 labeled: bug
