@@ -1,0 +1,17 @@
+name: Add Bug issue in Backlog
+
+
+on:
+    issues:
+        types: [opened]
+
+    
+jobs:
+    issue-bug:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/add-to-project@2.0.1
+              with: 
+                 project-url: https://github.com/users/${{ github.repository_owner }}/projects/5
+                github-token: ${{ secrets.PROJECT_SECRET }}
+                labeled: bug
